@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useQuiz } from "../context/QuizContext.jsx";
-import ScoreBoard from "../components/ScoreBoard.jsx";
+import { useQuiz } from "../../context/QuizContext.jsx";
+import ScoreBoard from "../../component/ScoreBoard/ScoreBoard.jsx";
+import styles from "./ResultPage.module.css";
 
 const ResultPage = () => {
   const { answers, score, resetQuiz } = useQuiz();
@@ -12,11 +13,13 @@ const ResultPage = () => {
   };
 
   return (
-    <div className="result-page">
+    <div className={styles.container}>
       <h1>Quiz Completed!</h1>
       <h2>Your Score: {score} / 10</h2>
       <ScoreBoard answers={answers} />
-      <button onClick={handleRestart}>Play Again</button>
+      <button onClick={handleRestart} className={styles.button}>
+        Play Again
+      </button>
     </div>
   );
 };

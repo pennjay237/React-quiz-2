@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QuizProvider } from "./context/QuizContext.jsx";
 import LandingPage from "./pages/Landing/LandingPage.jsx";
-import Quiz from "./pages/QuizPage/QuizPage.jsx";
+import Quiz from "./pages/Quiz/Quiz.jsx";
 import ResultPage from "./pages/ResultPage/ResultPage.jsx";
 
 function App() {

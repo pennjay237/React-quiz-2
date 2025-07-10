@@ -1,7 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useQuiz } from "../context/QuizContext.jsx";
-import QuestionCard from "../components/QuestionCard.jsx";
-import AnswerButton from "../components/AnswerButton.jsx";
+import { useQuiz } from "../../context/QuizContext.jsx";
+import QuestionCard from "../../component/QuestionCard/QuestionCard.jsx";
+import AnswerButton from "../../component/AnswerButton/AnswerButton.jsx.jsx";
+import styles from "./Quiz.module.css";
 
 const Quiz = () => {
   const { id } = useParams();
@@ -10,7 +11,7 @@ const Quiz = () => {
   const currentIndex = parseInt(id);
   const question = questions[currentIndex];
 
-  if (!question) return <div>Loading...</div>;
+  if (!question) return <div className={styles.loading}>Loading...</div>;
 
   const handleAnswer = (userAnswer) => {
     const correct = userAnswer === (question.correct_answer === "True");
@@ -33,14 +34,16 @@ const Quiz = () => {
   };
 
   return (
-    <div className="quiz-page">
+    <div className={styles.container}>
       <QuestionCard
         question={question.question}
         questionNumber={currentIndex + 1}
         total={questions.length}
       />
-      <AnswerButton label="True" onClick={() => handleAnswer("True")} />
-      <AnswerButton label="False" onClick={() => handleAnswer("False")} />
+      <div className={styles.buttonGroup}>
+        <AnswerButton label="True" onClick={() => handleAnswer("True")} />
+        <AnswerButton label="False" onClick={() => handleAnswer("False")} />
+      </div>
     </div>
   );
 };
