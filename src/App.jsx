@@ -1,20 +1,33 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { QuizProvider } from "./context/QuizContext.jsx";
-import LandingPage from "./pages/Landing/LandingPage.jsx";
-import Quiz from "./pages/Quiz/Quiz.jsx";
-import ResultPage from "./pages/ResultPage/ResultPage.jsx";
+
+import "./App.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Home from "./pages/Home/Home";
+import Questionnaire from "./pages/Questionnaire/Questionnaire";
+import ScorePage from "./pages/ScorePage/ScorePage";
+import { UseData } from "./context/context";
+import CategorySelect from "./component/Category/Category";
+
 
 function App() {
+	
+
+
   return (
-    <QuizProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/quiz/:id" element={<Quiz />} />
-          <Route path="/result" element={<ResultPage />} />
-        </Routes>
-      </Router>
-    </QuizProvider>
+    <UseData>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/Questionnaire/:number"
+          element={<Questionnaire />}
+        />
+        <Route path="/" element={<CategorySelect />} />
+
+        <Route path="/ScorePage" element={<ScorePage />} />
+      </Routes>
+    </BrowserRouter>
+    </UseData>
   );
 }
 
