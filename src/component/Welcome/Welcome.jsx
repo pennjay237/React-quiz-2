@@ -1,25 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const LandingPage = () => {
+const WelcomCart = ({ onStart }) => {
   const [difficulty, setDifficulty] = useState("easy");
-  const [category, setCategory] = useState("9"); // Default: General Knowledge
-  const navigate = useNavigate();
+  const [category, setCategory] = useState("9");
 
-  const startQuiz = () => {
-    navigate(`/quiz?difficulty=${difficulty}&category=${category}`);
-  };
-
-  return (
-    <WelcomCart navig={startQuiz} isLoading={true} />
-  );
-};
-
-export default LandingPage;
-
-// Separated Component
-function WelcomCart({ navig, isLoading }) {
   return (
     <div className="box">
       <div className="card-box">
@@ -28,7 +13,7 @@ function WelcomCart({ navig, isLoading }) {
 
           <div className="select-container">
             <h2>Select Difficulty</h2>
-            <select onChange={(e) => {}}>
+            <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
               <option value="easy">Easy 🟢</option>
               <option value="medium">Medium 🟡</option>
               <option value="hard">Hard 🔴</option>
@@ -37,7 +22,7 @@ function WelcomCart({ navig, isLoading }) {
 
           <div className="select-container">
             <h2>Select Category</h2>
-            <select onChange={(e) => {}}>
+            <select value={category} onChange={(e) => setCategory(e.target.value)}>
               <option value="9">General Knowledge</option>
               <option value="21">Sports</option>
               <option value="23">History</option>
@@ -48,8 +33,8 @@ function WelcomCart({ navig, isLoading }) {
 
           <div className="row">
             <button
-              onClick={() => navig()}
-              className={`btn btn-outline-success bouton ${!isLoading && "disabled"}`}
+              onClick={() => onStart(category, difficulty)}
+              className="btn btn-outline-success bouton"
             >
               Start Game
             </button>
@@ -58,9 +43,10 @@ function WelcomCart({ navig, isLoading }) {
       </div>
     </div>
   );
-}
+};
 
 WelcomCart.propTypes = {
-  navig: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool,
+  onStart: PropTypes.func.isRequired,
 };
+
+export default WelcomCart;
