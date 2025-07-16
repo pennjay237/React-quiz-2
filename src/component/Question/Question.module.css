@@ -1,8 +1,84 @@
-.card {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin: 24px auto;
-  max-width: 600px;
-  border-radius: 12px;
-  background-color: #f9f9f9;
+/* Question.module.css */
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #111; /* Deep black background */
+  min-height: 100vh;
+  color: #fff;
+}
+
+.cardBox {
+  background-color: #1e1e1e; /* Charcoal */
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.col6 {
+  width: 48%;
+}
+
+.questionBox h3,
+.questionBox h4 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.questionBox h3 span {
+  color: #aaa;
+}
+
+.questionText {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #eee;
+  margin-top: 1rem;
+}
+
+.tfButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bouton {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btnSuccess {
+  background-color: #0f0f0f;
+  color: #0f0;
+  border: 1px solid #0f0;
+}
+
+.btnSuccess:hover {
+  background-color: #1a1a1a;
+}
+
+.btnDanger {
+  background-color: #0f0f0f;
+  color: #f00;
+  border: 1px solid #f00;
+}
+
+.btnDanger:hover {
+  background-color: #1a1a1a;
 }

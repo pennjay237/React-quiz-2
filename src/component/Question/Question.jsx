@@ -1,3 +1,4 @@
+import styles from "./Question.module.css";
 import { PropTypes } from "prop-types";
 import he from "he";
 
@@ -8,52 +9,55 @@ export default function Question({
 	totalQuestion,
 	time,
 }) {
-	function escapeHtml(word){
+	function escapeHtml(word) {
 		return word ? he.decode(word) : "";
 	}
+
+	if (!question) return <div className={styles.box}>Loading question...</div>;
+
 	return (
-		<div className="box">
-			<div className="card-box question-box">
-				<div className="row">
+		<div className={styles.box}>
+			<div className={`${styles.cardBox} ${styles.questionBox}`}>
+				<div className={styles.row}>
 					<h3>
-						Question{" "}
-						<span>
-							{number}/{totalQuestion}
-						</span>
+						Question <span>{number}/{totalQuestion}</span>
 					</h3>
 					<h3> Time left: {time} </h3>
 				</div>
-				<div className="yes">
-					<div className="col-6">
+
+				<div className={styles.row}>
+					<div className={styles.col6}>
 						<h4>
 							Category : <span>{question?.category}</span>
 						</h4>
 					</div>
-					<div className="col-6">
+					<div className={styles.col6}>
 						<h4>
-							Difficulty : <span>{question.difficulty}</span>
+							Difficulty : <span>{question?.difficulty}</span>
 						</h4>
 					</div>
 				</div>
-				<div className="row g-1">
-					<h3 className="questipn"> {escapeHtml(question?.question)}</h3>
+
+				<div className={styles.row}>
+					<h3 className={styles.questionText}>
+						{escapeHtml(question?.question)}
+					</h3>
 				</div>
-				<div className="tfbut">
-					<div className="col-6">
+
+				<div className={styles.tfButtons}>
+					<div className={styles.col6}>
 						<button
 							onClick={() => next(question, "True")}
-							className="btn btn-outline-success bouton"
+							className={`${styles.bouton} ${styles.btnSuccess}`}
 						>
-							{" "}
-							True{" "}
+							True
 						</button>
 					</div>
-					<div className="col-6">
+					<div className={styles.col6}>
 						<button
 							onClick={() => next(question, "False")}
-							className="btn btn-outline-danger bouton "
+							className={`${styles.bouton} ${styles.btnDanger}`}
 						>
-							{" "}
 							False
 						</button>
 					</div>

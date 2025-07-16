@@ -1,8 +1,9 @@
-import WelcomCart from "../../component/Welcome/Welcome";
+import WelcomCart from "../../component/Welcome/WelcomCart";
 import { useNavigate } from "react-router";
 import { useContext } from "react";
 import { getQuestion } from "../../services/api";
 import { DataContext } from "../../context/context";
+import styles from "./Home.module.css";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -16,5 +17,9 @@ export default function Home() {
     }
   };
 
-  return <WelcomCart onStart={handleNavigate} />;
+  return (
+    <div className={styles.homeContainer}>
+      <WelcomCart onStart={handleNavigate} />
+    </div>
+  );
 }

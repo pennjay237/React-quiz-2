@@ -1,14 +1,11 @@
-.container {
-  text-align: center;
-  padding: 30px;
-}
+/* Questionnaire.module.css */
 
-.loading {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-top: 60px;
-}
-
-.buttonGroup {
-  margin-top: 20px;
+.questionnaireContainer {
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: #fff;
 }

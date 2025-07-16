@@ -1,15 +1,11 @@
-.container {
-  text-align: center;
-  padding: 30px;
-}
+/* ScorePage.module.css */
 
-.button {
-  margin-top: 20px;
-  padding: 10px 24px;
-  font-size: 1.1rem;
-  background-color: #ff5722;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+.scorePageContainer {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
