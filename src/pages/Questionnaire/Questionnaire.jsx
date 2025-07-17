@@ -34,8 +34,13 @@ export default function Questionnaire() {
     }
   }, [time]);
 
-  return (
-    <div className={styles.questionnaireContainer}>
+ return (
+  <div className={styles.questionnaireContainer}>
+    <div className={styles.questionCard}>
+      <button className={styles.backBtn} onClick={() => navigate("/")}>
+        ⬅ Back to Home
+      </button>
+
       <QuestionCard
         next={handleNext}
         question={tabQuestions[number - 1]}
@@ -44,5 +49,7 @@ export default function Questionnaire() {
         time={time}
       />
     </div>
-  );
+  </div>
+);
+
 }

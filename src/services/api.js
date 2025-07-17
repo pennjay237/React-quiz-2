@@ -1,14 +1,9 @@
-export const getQuestion = async (category = "9", difficulty = "easy") => {
+
+export const getQuestion = async (category, difficulty) => {
   try {
     const response = await fetch(
-      `https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&category=${category}&type=boolean`
+      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=boolean`
     );
-
-    if (response.status === 429) {
-      console.error("Rate limit exceeded. Please try again later.");
-      return [];
-    }
-
     const data = await response.json();
     return data.results;
   } catch (error) {

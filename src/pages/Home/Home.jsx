@@ -1,3 +1,4 @@
+
 import WelcomCart from "../../component/Welcome/WelcomCart";
 import { useNavigate } from "react-router";
 import { useContext } from "react";
@@ -11,9 +12,11 @@ export default function Home() {
 
   const handleNavigate = async (category, difficulty) => {
     const data = await getQuestion(category, difficulty);
-    if (data) {
+    if (data && data.length > 0) {
       setQuestions(data);
       navigate("/Questionnaire/1");
+    } else {
+      alert("No questions found for this category and difficulty. Try a different one.");
     }
   };
 

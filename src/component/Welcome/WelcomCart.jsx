@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./WelcomCart.module.css";
@@ -20,7 +21,6 @@ const WelcomCart = ({ onStart }) => {
             >
               <option value="easy">Easy 🟢</option>
               <option value="medium">Medium 🟡</option>
-              <option value="hard">Hard 🔴</option>
             </select>
           </div>
 
